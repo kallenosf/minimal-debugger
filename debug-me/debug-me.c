@@ -7,16 +7,16 @@ void print_menu(){
     printf("2. Calculate x - y\n");
 }
 
-long addition(unsigned int x, unsigned int y){
+long addition(int x, int y){
     return x + y;
 }
 
-long subtraction(unsigned int x, unsigned int y){
+long subtraction(int x, int y){
     return x - y;
 }
 
 int main(){
-    unsigned int x, y;
+    int x, y;
     int option;
 
     printf("Give me x: ");
@@ -38,9 +38,9 @@ int main(){
     }
 
     if (option == 1)
-        printf("x + y = %d\n", addition(x,y));
+        printf("x + y = %ld\n", addition(x,y));
     else
-        printf("x - y = %d\n", subtraction(x,y));
+        printf("x - y = %ld\n", subtraction(x,y));
 
 
     return 0;
