@@ -32,3 +32,24 @@ There is a tiny sample binary named `debug-me` inside the `binaries` directory. 
 ```sh
 ./mdb binaries/debug-me
 ```
+### Build from source
+If you want to compile the debugger from the source code, you need to install two libraries:
+- `libelf-dev` : Allows reading and writing of ELF files on a high level
+- `libcapstone-dev` : Lightweight multi-architecture disassembly framework
+Once you have installed these dependencies:
+```sh
+make
+```
+or
+```sh
+gcc mdb.c -o mdb -lelf -lcapstone
+```
+#### Arch linux
+```sh
+pacman -S libelf
+pacman -S capstone
+```
+#### Ubuntu
+```sh
+apt install gcc make libelf-dev libcapstone-dev
+```
