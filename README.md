@@ -57,6 +57,11 @@ Then, you can run the debugger:
 ```sh
 ./mdb [binary_to_debug]
 ```
+#### Cleaning Up
+To remove the compiled binary and other generated files, run:
+```sh
+make clean
+```
 ## Usage
 To start debugging with mdb, specify the binary you want to debug when launching the program. For example:
 ```sh
