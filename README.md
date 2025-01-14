@@ -26,3 +26,6 @@ docker run --rm -it minimal-debugger
 ```sh
 ./mdb [binary_to_debug]
 ```
+All files are copied inside the container, so any binary you want to debug/analyze must be copied in the project's directory.
+#### Sample binary
+There is a tiny sample binary named `debug-me` inside the `binaries` directory. You can use it to test the debugger. It's source code, `debug-me.c` is also inside the `binaries` directory.
