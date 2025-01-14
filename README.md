@@ -63,7 +63,7 @@ To remove the compiled binary and other generated files, run:
 make clean
 ```
 ## Usage
-To start debugging with mdb, specify the binary you want to debug when launching the program. For example:
+To start debugging with `mdb`, specify the binary you want to debug when launching the program. For example:
 ```sh
 ./mdb binaries/debug-me
 ```
@@ -127,8 +127,8 @@ q
 ```
 ## Limitations
 1. Position-Independent Executables (PIEs):
-- Breakpoints by function symbols are unsupported for PIE binaries because the debugger cannot calculate relative addresses at runtime.
-- Workaround: Use memory addresses (e.g., b *0x401000) to set breakpoints if you know the absolute address.
+   - Breakpoints by function symbols are unsupported for PIE binaries because the debugger cannot calculate relative addresses at runtime.
+   - Workaround: Use memory addresses (e.g., b *0x401000) to set breakpoints if you know the absolute address.
 2. Dynamic Linking and Symbols:
-- `mdb` does not currently support dynamically linked symbols, meaning symbols from shared libraries may not be accessible.
-- Workaround: Consider disassembling shared libraries manually or using absolute addresses.
+   - `mdb` does not currently support dynamically linked symbols, meaning symbols from shared libraries may not be accessible.
+   - Workaround: Consider disassembling shared libraries manually or using absolute addresses.
