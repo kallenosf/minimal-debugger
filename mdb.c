@@ -358,6 +358,12 @@ pid_t run_tracee_program(char ** argv){
                the parent must do waitpid().
              */
             execvp(argv[1], argv + 1);
+            if (errno == 2){
+                char *local_bin = malloc(strlen(argv[1])+3);
+                strcat(local_bin, "./");
+                strcat(local_bin, argv[1]);
+                execvp(local_bin, argv + 1);
+            }
             die("Faild to execute the binary. Error: %s", strerror(errno));
     }
 
