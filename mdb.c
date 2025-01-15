@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
 
 /* POSIX */
 #include <unistd.h>
@@ -11,6 +12,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/prctl.h>
 
 /* Linux */
 #include <syscall.h>
@@ -352,6 +354,8 @@ pid_t run_tracee_program(char ** argv){
         case -1: /* error */
             die("Failed to fork. Error: %s", strerror(errno));
         case 0:  /* Code that is run by the child. */
+            /* Install a parent death signal, so the child dies too*/
+            prctl(PR_SET_PDEATHSIG, SIGTERM);
             /* Start tracing.  */
             ptrace(PTRACE_TRACEME, 0, 0, 0);
             /* execvp() is a system call, the child will block and
