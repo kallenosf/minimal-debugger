@@ -18,23 +18,31 @@ long subtraction(int x, int y){
 int main(){
     int x, y;
     int option;
+    int rcode;
 
     printf("Give me x: ");
-    scanf("%u", &x);
+    if (!scanf("%u", &x)){
+        printf("x must be a number!\n");
+        return 1;
+    }
 
     printf("Give me y: ");
-    scanf("%u", &y);
+    if (!scanf("%u", &y)){
+        printf("y must be a number!\n");
+        return 1;
+    }
 
     print_menu();
 
-    printf("Choice: ");
-    scanf("%d", &option);
+    rcode = scanf("%d", &option);
 
-    while (option != 1 && option != 2){
+    while (!rcode || (option != 1 && option != 2)){
+        if (!rcode)
+            getchar();
         printf("Your choice must be \"1\" or \"2\" ! \n");
         print_menu();
         printf("Choice: ");
-        scanf("%d", &option);
+        rcode = scanf("%d", &option);
     }
 
     if (option == 1)
