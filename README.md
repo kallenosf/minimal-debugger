@@ -49,6 +49,8 @@ Once you have installed these dependencies:
 ```sh
 make
 ```
+- `make` compiles also a sample binary named `debug-me` inside the `binaries` directory
+
 or
 ```sh
 gcc mdb.c -o mdb -lelf -lcapstone
